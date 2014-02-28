@@ -1,5 +1,5 @@
 // swagger.js
-// version 2.0.22
+// version 2.0.21
 
 var __bind = function(fn, me){
   return function(){
@@ -14,15 +14,6 @@ log = function(){
     console.log( Array.prototype.slice.call(arguments) );
   }
 };
-
-if (!Array.prototype.indexOf) {
-  Array.prototype.indexOf = function(obj, start) {
-     for (var i = (start || 0), j = this.length; i < j; i++) {
-         if (this[i] === obj) { return i; }
-     }
-     return -1;
-  }
-}
 
 var SwaggerApi = function(url, options) {
   this.url = null;
@@ -958,7 +949,7 @@ var SwaggerRequest = function(type, url, params, opts, successCallback, errorCal
     }
   }
 
-  var responseContentType = null;
+  responseContentType = null;
   if (this.opts.responseContentType) {
     responseContentType = this.opts.responseContentType;
   } else {
@@ -1125,7 +1116,7 @@ JQueryHttpClient.prototype.execute = function(obj) {
       headers: headers
     };
 
-    var contentType = (headers["content-type"]||headers["Content-Type"]||null)
+    var contentType = (response._headers["content-type"]||response._headers["Content-Type"]||null)
 
     if(contentType != null) {
       if(contentType.indexOf("application/json") == 0 || contentType.indexOf("+json") > 0) {
